@@ -11,5 +11,16 @@
 
 
 def dicetoorderedhand(a, b, c):
-	# your code goes here
-	pass
+	res = []
+	res.append(a)
+	res.append(b)
+	res.append(c)
+	res = sorted(res, reverse = True)
+	result = 0
+	for i in range(len(res) ):
+		result = result*10 + res[i]
+
+
+	return result
+
+print(dicetoorderedhand(6,5,4))
