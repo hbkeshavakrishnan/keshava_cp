@@ -28,3 +28,8 @@ def powerSum(n, k):
 assert(powerSum(2,10) == 1025)
 assert(powerSum(3,10) == 60074)
 print ("All test cases passed...")
+
+
+# My time complexity for this particular code is O(n)
+# Here is used only one for loop which runs over the vakue of n
+# So the time complexity is n
