@@ -5,5 +5,8 @@
 
 
 def trianglearea(s1, s2, s3):
-	# your code goes here
-	pass
+	if s1 + s2 > s3 and s2 + s3 > s1 and s3 + s1 > s2:
+		s = (s1 + s2 + s3) / 2
+		return (s * (s - s1) * (s - s2) * (s - s3)) ** 0.5
+	else:
+		return 0
