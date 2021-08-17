@@ -6,4 +6,9 @@
 
 
 def fun_get_kth_digit(digit, k):
-	return 0
+	digit = abs(digit)
+	while k >= 0:
+		res = digit % 10
+		digit = digit // 10
+		k = k - 1
+	return res
