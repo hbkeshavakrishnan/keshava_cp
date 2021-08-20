@@ -6,9 +6,19 @@
 # (2x**22 + 3)(4x + 5) = 8x**3 + 10x**2 + 12x + 15
 # And so this returns [8, 10, 12, 15].
 
-def multiplyPolynomials(p1, p2):
-    # Your code goes here...
-    pass
 
+
+
+def multiplyPolynomials(p1, p2):
+    m = len(p1)
+    n = len(p2)
+    prod = [0] * (m + n - 1)
+    for i in range(m):
+        for j in range(n):
+            prod[i + j] += p1[i] * p2[j]
+    return prod
+
+print(multiplyPolynomials([2,0,3], [4,5]))
 # Write your own test cases
+
 print ("All test cases passwed...")
