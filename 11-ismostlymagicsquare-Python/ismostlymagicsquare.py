@@ -13,6 +13,51 @@
 #   [ 2, 1]]
 # Each row and each column add to 3, but one diagonal adds to 2 and the other to 4.
 
+def diagonal_cal(a):
+	s = 0
+	l = 0
+	k = []
+	for i in range(len(a)):
+		s += a[i][i]
+	k.append(s)
+	for i in range(len(a)-1, -1, -1):
+		l += a[i][i]
+	k.append(l)
+	return k
+
+def row_cal(a):
+	s = 0
+	k = []
+	for i in range(len(a)):
+		for j in range(len(a[0])):
+			s += a[i][j]
+		k.append(s)
+		s = 0
+	return k
+
+def col_cal(a):
+	s = 0
+	k = []
+	for i in a:
+		s += sum(i)
+		k.append(s)
+		s = 0
+	return k
+
 def ismostlymagicsquare(a):
-	# Your code goes here
-	pass
+	if len(a) != len(a[0]):
+		return False
+	k = row_cal(a)
+	if len(k) == len(set(k)):
+		return False
+	l = col_cal(a)
+	if len(l) == len(set(l)):
+		return False
+	b = diagonal_cal(a)
+	if sum(row_cal(a)) == sum(col_cal(a)) == sum(b) + (b[0]) * (len(a) - 2):
+		return True
+	else:
+		return False
+
+
+print(col_cal([[16, 3, 2, 13], [5, 10, 11, 8], [9, 6, 7, 12],[4, 15, 14, 1]]))
