@@ -5,7 +5,17 @@
 
 
 
-def fun_alternatingsum(a): 
-	return 0
+def fun_alternatingsum(a):
+	s = 0 
+	if len(a) == 0:
+		return 0
+	if len(a) % 2 == 0:
+		for i in range(0, len(a), 2):
+			s += a[i] - a[i+1]
+	else:
+		s = a[0]
+		for i in range(1, len(a), 2):
+			s += -a[i] + a[i+1]
+	return s
 
-
+print(fun_alternatingsum([99,56,23,98,45]))
