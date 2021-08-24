@@ -5,7 +5,7 @@ import pytest
 
 
 @pytest.mark.parametrize('a, result',[
-    (0,7),(1,13),(2,19),(3,23),(4,31)
+    (0,7),(1,10),(2,13),(3,19),(4,23)
 ])
 def test_fun_nth_happy_prime(a, result):
     assert fun_nth_happy_prime(a) == result
