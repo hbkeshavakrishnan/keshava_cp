@@ -12,5 +12,48 @@
 
 import math
 
+
+def count(n):
+    c = 0
+    while n > 0:
+        c += 1
+        n = n // 10
+    return c
+
+
+def kap(n):
+    z = n ** 2
+    a = count(z)
+    for i in range(1, a+1):
+        b = z % (10 ** i)
+        c = z // (10 ** i)
+        # print(b,c)
+        if n == b + c:
+            return True
+    return False
+
+# print(kap(297))
+
+
+
+
+
 def fun_nearestkaprekarnumber(n):
+    i = 1
+    a = True
+    while a:
+        b = n - i
+        c = n + i
+        if kap(n):
+            a = False
+            return n
+        if kap(b):
+            a = False
+            return b
+        if kap(c):
+            a = False
+            return c
+        i += 1
     return 1
+
+# print(fun_nearestkaprekarnumber(3861))

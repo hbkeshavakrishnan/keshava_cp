@@ -6,7 +6,7 @@ import pytest
 
 @pytest.mark.parametrize('a, result',[
     (49, 45), (51, 55), (50, 45),
-(102, 99),(765, 703),(3861, 4879)
+(102, 100),(765, 703),(3861, 4879)
 
 ])
 def test_fun_nearestkaprekarnumber(a, result):
