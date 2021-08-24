@@ -9,28 +9,50 @@
 # that copy and return it. Instead, you must directly construct the result here.
 
 
-def shortenLongRuns(n, k):
+# def shortenLongRuns(n, k):
+# 	if n == []:
+# 		return []
+# 	res = []
+# 	z = len(n)
+# 	c = 1
+# 	# a = n[0]
+# 	for i in range(1, len(n)-1):
+# 		if n[i] == n[i-1]:
+# 			c += 1
+# 			if c == k:
+# 				# n.remove(n[i])
+# 				# z = z - 1
+# 				continue
+# 		else:
+# 			res.append(n[i])
+# 			c = 1
+# 	# 		a = n[i]
+# 	# res.append((c, n[-1]))
+# 	return res
+
+def shortenlongruns(n, k):
 	if n == []:
 		return []
-	# res = []
-	z = len(n)
-	c = 1
-	# a = n[0]
-	while z > 0:
-		for i in range(1, len(n)-1):
-			if n[i] == n[i-1]:
-				c += 1
-				if c == k:
-					n.remove(n[i])
-					z = z - 1
-			else:
-		# 		res.append((c, a))
-				c = 1
-		# 		a = n[i]
-		# res.append((c, n[-1]))
+	res = []
+	z = 0
+	while z < len(n):
+		c=0
+		for i in range(k):
+			if z + i < len(n):
+				if(n[z]==n[z+i]):
+					c+=1
+		if(c==k):
+			n.pop(z)
+			continue
+		z+=1
 	return n
+			
 
-print(shortenLongRuns([2, 3, 5, 5, 5, 3], 2))
+
+
+
+
+print(shortenlongruns([2, 3, 5, 5, 5, 3, 3, 3], 3))
 
 
 # def shortenlongruns(L, k):
