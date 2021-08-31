@@ -11,6 +11,27 @@
 #  assert(fun_isfactorish(42) == False) # 42 has a leading 0 (only 2 unique digits)
 
 
+
 def fun_isfactorish(n):
+	if(getCount(n)!=3):
+		return False
+	n=abs(n)
+	dn=n
+	a=dn%10
+	dn=dn//10
+	b=dn%10
+	dn=dn//10
+	c=dn%10
+	if(a==b or b==c or c==a or a==0 or b==0 or c==0):
+		return False
+	if(n%a==0 and n%b==0 and n%c==0):
+		return True
 	return False
 
+def getCount(n):
+	c=0
+	n=abs(n)
+	while(n>0):
+		n=n//10
+		c+=1
+	return c
