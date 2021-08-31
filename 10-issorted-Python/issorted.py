@@ -7,4 +7,16 @@
 
 def issorted(a):
 	# your code goes here
-	pass
+	fl=True
+	fr=True
+	for i in range(1,len(a)):
+		if(a[i]<a[i-1]):
+			fl=False
+	if(fl):
+		return True
+	for i in range(1,len(a)):
+		if(a[i]>a[i-1]):
+			fr=False
+	if(fr):
+		return True
+	return False
