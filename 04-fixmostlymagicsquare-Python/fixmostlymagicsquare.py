@@ -8,3 +8,48 @@
 
 def fixmostlymagicsquare(L):
 	# Your code goes here
+	rsl=[]
+	csl=[]
+	for i in range(len(L)):
+		rsl.append(sum(L[i]))
+
+	cs=0
+	for i in range(len(L[0])):
+		for j in range(len(L)):
+			cs+=L[j][i]
+		csl.append(cs)
+		cs=0
+	
+	r=probrow(rsl)
+	c=probcol(csl)
+	v=valchange(csl)
+	L[r][c]-=v
+
+	return L
+
+def getCount(a,v):
+	c=0
+	for i in range(len(a)):
+		if(a[i]==v):
+			c+=1
+	return c
+	
+def probrow(a):
+	for i in range(len(a)):
+		x=getCount(a,a[i])
+		if(x==1):
+			return i
+
+def valchange(a):
+	ma=max(a)
+	mi=min(a)
+	if(getCount(a,ma)==1):
+		return (ma-mi)
+	if(getCount(a,mi)==1):
+		return (mi-ma)
+
+def probcol(a):
+	for i in range(len(a)):
+		x=getCount(a,a[i])
+		if(x==1):
+			return i
