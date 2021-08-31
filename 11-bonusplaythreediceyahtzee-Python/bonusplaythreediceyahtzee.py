@@ -41,4 +41,65 @@
 
 def bonusplaythreediceyahtzee(dice):
 	# Your code goes here
-	pass
+	hand1=dice%1000
+	dice1=dice//1000
+	h1,d1=playstep2(hand1,dice1)
+	h2,d2=playstep2(h1,d1)
+	s=checkscore(h2)
+	return h2,s
+
+def playstep2(hand, dice):
+	# your code goes here
+	a,b,c=handtodice(hand)
+	dice1=dice
+	if(a==b and b==c and c==a):
+		return(hand,dice)
+	if(a!=b and b!=c and c!=a):
+		h1=a
+		h2=dice1%10
+		dice1=dice1//10
+		h3=dice1%10
+		dice1=dice1//10
+		h=dicetoorderedhand(h1,h2,h3)
+		return(h,dice1)
+	if(b==c):
+		h2=b
+		h3=c
+		h1=dice%10
+		dice=dice//10
+		h=dicetoorderedhand(h1,h2,h3)
+		return(h,dice)
+
+def dicetoorderedhand(a, b, c):
+	# your code goes here
+	arr=[]
+	arr.append(a)
+	arr.append(b)
+	arr.append(c)
+	arr.sort()
+	return((arr[2]*100)+(arr[1]*10)+(arr[0]))
+
+def handtodice(hand):
+	# your code goes here
+	th=hand%10
+	hand=hand//10
+	t=hand%10
+	hand=hand//10
+	o=hand%10
+	return((o,t,th))
+
+def checkscore(hand):
+	a,b,c=handtodice(hand)
+	arr=[]
+	score=0
+	arr.append(a)
+	arr.append(b)
+	arr.append(c)
+	arr.sort()
+	if(a!=b and b!=c and c!=a):
+		score=arr[2]
+	elif((a==b and b!=c) or (b==c and c!=a)):
+		score=10+b+b
+	elif(a==b and b==c):
+		score=20+a+a+a
+	return score	
