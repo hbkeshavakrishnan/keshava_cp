@@ -16,12 +16,42 @@
 
 def topScorer(data):
     # Your code goes here...
-    return ""
+    if(len(data)==0):
+        return None
+    l=data.splitlines()
+    # print(l)
+    d={}
+    for i in l:
+        name=i.split(",")[0]
+        scores=i.split(",")[1:]
+        d[name]=0
+        for j in range(len(scores)):
+            d[name]+=int(scores[j])
+    # print(d)
+    n=[]
+    s=[]
+    for k,v in d.items():
+        n.append(k)
+        s.append(v)
+    # print(n,s)
+    ind=[]
+    ma=max(s)
+    for i in range(len(s)):
+        if(s[i]>=ma):
+            ind.append(i)
+    # print(ind)
+    out=""
+    for i in ind:
+        out+=n[i]+","
+    return out[:-1]
 
 data = '''\
 Fred,10,20,30,40
 Wilma,10,20,30
 '''
+# print(topScorer(data))
+
+
 assert(topScorer(data) == 'Fred')
 
 data = '''\
