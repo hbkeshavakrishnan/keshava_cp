@@ -29,9 +29,36 @@
 # assert(isKnightsTour(board)==True)
 
 
-def isKnightsTour(board):
-    # Your code goes here...
-    pass
+def getrowcol(L, i):
+    for r in range(len(L)):
+        for c in range(len(L[0])):
+            if(L[r][c]==i):
+                return(r,c)
+    return (-1, -1)
+
+def isvalidmove(r1, c1, r2, c2):
+    if(((abs(r1-r2)==1) and (abs(c1-c2)==2)) or ((abs(c1-c2)==1) and (abs(r1-r2)==2))):
+        return True
+    return False
+
+def isKnightsTour(L):
+    # your code goes here
+    m=len(L)
+    n=len(L[0])
+    for row in range(m):
+        for col in range(n):
+            if(L[row][col]==0):
+                return False
+    i=1
+    while(i<(m*n)):
+        r1,c1=getrowcol(L, i)
+        r2,c2=getrowcol(L, (i+1))
+        if(r1==-1 or c1==-1):
+            return False
+        i=i+1
+        if(isvalidmove(r1, c1, r2, c2)==False):
+            return False
+    return True
 
 board = [
             [  1, 60, 39, 34, 31, 18,  9, 64 ],
@@ -47,3 +74,4 @@ assert(isKnightsTour(board)==True)
 
 # You can write your own test cases here...
 print("All test cases passed....")
+
