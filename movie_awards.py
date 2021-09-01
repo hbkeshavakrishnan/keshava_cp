@@ -16,6 +16,12 @@
 #     "I, Tonya" : 1
 # }
 
-def movieAwards(oscarResults):
+def movie_awards(oscarResults):
     # Your code goes here...
-    pass
+    d={}
+    for a,m in oscarResults:
+        if m in d:
+            d[m]+=1
+        else:
+            d[m]=1
+    return d
