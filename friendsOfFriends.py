@@ -25,5 +25,18 @@ Thus, in this example, friendsOfFriends should return:
 '''
 
 def friendsOfFriends(d):
-    # Your code goes here...
-    return None
+    # your code goes here   
+    counts={}
+    for key in d:
+        for elem in d[key]:
+            if key not in counts:
+                counts[key]=set()
+            if elem in d:
+                for elems in d[elem]:
+                    if key!=elems and (elems not in d[key]):
+                        counts[key].add(elems)
+    for key in d:
+        if key not in counts:
+            counts[key]=set()
+
+    return counts
