@@ -5,4 +5,16 @@
 
 def nthpronicnumber(n):
 	# Your code goes here
-	pass
+	found=1
+	guess=0
+	while(found<=n):
+		guess+=1
+		if(isPronic(guess)):
+			found+=1
+	return guess
+
+def isPronic(n):
+	x=int(n**0.5)
+	if(x*(x+1)==n):
+		return True
+	return False
