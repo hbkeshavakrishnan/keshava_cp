@@ -14,9 +14,22 @@
 # Once again, do not use s.replace() in your solution. 
 # You should not use a regular expression library.
 
+
 def cw(s):
     # Your code goes here...
-    return ""
+    l=[]
+    for i in s:
+        if i.isspace():
+            continue
+        else:
+            l.append(i)
+    out=""
+    for i in l:
+        out+=i+" "
+    out=out[:-1]
+    if(s[-1].isspace()):
+        out+=" "
+    return out
 
 assert(cw("a\nb") == "a b")
 assert(cw("a\n   \t    b") == "a b")
