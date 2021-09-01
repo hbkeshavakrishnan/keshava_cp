@@ -3,4 +3,30 @@
 
 def nQueensChecker(a):
     # Your code goes here...
-    pass
+    l=[]
+    for i in range(len(a)):
+        for j in range(len(a[0])):
+            if(a[i][j]==True):
+                l.append((i,j))
+    for i in range(len(l)-1):
+        for j in range((i+1),len(l)):
+            qR=l[i][0]
+            qC=l[i][1]
+            oR=l[j][0]
+            oC=l[j][1]
+            if canqueenattack(qR, qC, oR, oC)==True:
+                return False
+    return True
+    
+def canqueenattack(qR, qC, oR, oC):
+	# Your code goes here
+	if(qR==oR or qC==oC or abs(qR-oR)==abs(qC-oC)):
+		return True
+	return False
+
+
+board1=[[False,True,False,False],[False,False,False,True],[True,False,False,False],[False,False,True,False]]
+board2=[[False,True,True,False],[False,False,False,True],[True,False,False,False],[False,False,True,False]]
+assert(nQueensChecker(board1)==True)
+assert(nQueensChecker(board2)==False)
+print("Testcases Passed")
