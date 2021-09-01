@@ -7,6 +7,26 @@
 # yet covered lists, sets, maps, or efficiency, you are not expected to write the most efficient solution. Finally, 
 # if s does not contain any alphabetic characters, the result should be the empty string ("")
 
+def charcount(s, k):
+	c=0
+	for i in s:
+		if(i==k):
+			c=c+1
+	return(c)
+# print(charcount("harsha", "a"))
+
 def leastfrequentletters(s):
-	# Your code goes here
-	pass
+	s=s.lower()
+	# print(s)
+	c=len(s)
+	temp=""
+	for i in s:
+		if(i.isalpha()):
+			x=charcount(s, i)
+			if(x<c):
+				c=x
+				temp=i
+			elif(x==c):
+				temp+=i
+	
+	return(''.join(sorted(temp)))
