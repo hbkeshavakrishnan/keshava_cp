@@ -5,7 +5,11 @@
 
 def fun_isrectangular(l):
 	# Your code goes here...
-	return False
+	lr=len(l)
+	for i in range(1,lr):
+		if len(l[i])!=len(l[i-1]):
+			return False
+	return True
 
 
 
