@@ -6,4 +6,18 @@
 
 def nthwithproperty309(n):
 	# Your code goes here
-	pass
+	found = 0
+	guess = 308
+	while(found<=n):
+		guess+=1
+		if(is309num(guess)):
+			found+=1
+	return guess
+
+def is309num(n):
+	l=['0','1','2','3','4','5','6','7','8','9']
+	x=str(n**5)
+	for i in range(len(l)):
+		if(l[i] not in x):
+			return False
+	return True
